@@ -4,7 +4,6 @@ This repository contains a program developed to test and analyze different varia
 
 The implemented variants include:
 
-* **BFOo** – the original rule
 * **BFOc** – the corrected version
 * **BFOm** – a modified variant
 
@@ -31,7 +30,7 @@ This result is important because it demonstrates that:
 ##  Features
 
 * Simulation of **cellular automata solving the parity problem**
-* Implementation of **BFOo, BFOc, and BFOm**
+* Implementation of **BFOc and BFOm**
 * Support for arbitrary initial configurations
 * Detection of convergence to correct parity states
 * Step-by-step temporal evolution tracking
@@ -48,17 +47,30 @@ This result is important because it demonstrates that:
 
 2. Run a simulation with a selected rule:
 
-   ```bash
-   <command-to-run> --rule BFOo
-   <command-to-run> --rule BFOc
-   <command-to-run> --rule BFOm
-   ```
 
-3. Provide an initial configuration and analyze the evolution.
+To run the script, use the following command:
 
-##  Structure
+```bash
+python BFOc.py <d>
+python BFOm.py <d> 
+```
+
+where:
+
+* `d` is a **positive odd integer** (e.g., 1, 3, 5, 7, ...)
+
+### Example
+
+```bash
+python BFOc.py 5  -rule BFOc with configurations of size 5
+```
+
+### Notes
+
+* The program expects exactly one argument.
+* The value of `d` must be **odd**.
+* If an even number or no argument is provided, the program may return an error.
 
 
 
-## Notes
 
