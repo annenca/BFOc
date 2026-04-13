@@ -7,6 +7,9 @@ if len(sys.argv) < 2:
     print("ERROR: Missing required arguments!")
     print("Usage: python program.py <size_of_initial configuration>")
     sys.exit(1)
+'''d - size of a initial configuration'''
+d= int(sys.argv[1])
+assert (d%2)==1, , f"size_of_initial_configuration should be odd"
 
 setA0000031 = [1, 2, 3, 4, 6, 8, 14, 20, 36, 60, 108, 188, 352, 632, 1182, 2192, 4116, 7712, 14602, 27596,
                52488, 99880, 190746, 364724, 699252, 1342184, 2581428, 4971068, 9587580, 18512792, 35792568,
@@ -111,9 +114,7 @@ def compute(s, d):
             return (s, s1, j)
     return (s, s1, j)
 
-'''d - size of a initial configuration'''
-d= int(sys.argv[1])
-assert (d%2)==1
+
 f = rule_to_dict(BFOc)
 
 for i in range(0, (2 ** d), 1):
