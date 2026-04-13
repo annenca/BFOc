@@ -62,7 +62,7 @@ where:
 ### Example
 
 ```bash
-python BFOc.py 5  -rule BFOc with configurations of size 5
+python BFOc.py 5  --rule BFOc with configurations of size 5
 ```
 
 ### Notes
