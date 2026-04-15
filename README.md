@@ -20,11 +20,7 @@ This program was used to investigate and validate corrections to the original **
 
 ##  Research Context
 
-In our work, we provide a fix to the **BFOo** rule along with a full formal proof of correctness. The corrected version, called **BFOc** (*c* for *corrected*), eliminates issues observed in specific faulty initial configurations.
-
-This result is important because it demonstrates that:
-
-> A single-rule solution to the parity problem does exist,
+In 2013, the authors of [1] proposed the first candidate rule for solving the parity problem (the BFO rule). Unfortunately, it was later shown to be incorrect. The same authors then introduced a modified version (BFOm), which was successfully tested computationally; however, no formal mathematical proof was provided. In 2025, the authors of [3] proposed a corrected version of the BFO rule, called BFOc, for which a rigorous mathematical proof was established, confirming that it solves the parity problem.
 
 
 ##  Features
@@ -65,6 +61,18 @@ all - (optional) runs the program for all odd sizes from 5 up to the given size
 * An optional `all` argument enables processing for all odd sizes from 5 up to the given value.
 * Invalid, missing, or out-of-range input may result in an error.
 
+### References
+[1] Betel, H., Oliveira, P.P.B., Flocchini, P. 
+Solving the parity problem in one-dimensional cellular automata. 
+Natural Computing 12(3), 323–337 (2013) 
+//doi.org/10.1007/s11047-013-9374-9
 
+[2] Betel, H., Balbi, P.P., Flocchini, P., Meo Martins, C.L. 
+Solving the Parity Problem in One-Dimensional Cellular Automata: Proposal of a fix to the BFO rule.
+Unpublished manuscript (2016).
 
+[3] Wolnik B., Nenca A., Balbi P.P., De Baets B.,
+Cellular automata can really solve the parity problem,
+arXiv:2501.08684, 2025.
+https://arxiv.org/abs/2501.08684
 
