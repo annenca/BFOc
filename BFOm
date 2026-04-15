@@ -1,5 +1,4 @@
 #from joblib import Parallel, delayed
-from itertools import product
 import sys
 text='''Usage: python program.py <size_of_initial_configuration> [all]
         <size_of_initial_configuration> must be an odd number ≤ 35.
@@ -59,7 +58,7 @@ def compute(s, d):
 
 f = rule_to_dict(BFOm)
 if len(sys.argv) ==3 and sys.argv[2]=='all':
-    for d in range (3,int(sys.argv[1]),2):
+    for d in range (5,int(sys.argv[1]),2):
         for i in range(0, (2 ** d), 1):
             r = compute(i, d)
             assert (r[1] == '0' * d or r[1] == '1' * d), f"r[0]={toBinary(r[0], d)}, r[1]={r[1]}"
