@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+title: "BFO Rule Testing for the Parity Problem in Cellular Automata"
+message: "If you use this software, please cite it as below."
+type: software
+authors:
+  - family-names: Wolnik
+    given-names: B.
+  - family-names: Nenca
+    given-names: A.
+  - family-names: Balbi
+    given-names: P. P. 
+  - family-names: De Baets
+    given-names: B.
+year: 2025
+repository-code: https://github.com/annenca/BFOc
+keywords:
+  - cellular automata
+  - parity problem
+  - BFO rule
+  - discrete systems
+license: MIT
