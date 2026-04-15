@@ -31,10 +31,8 @@ This result is important because it demonstrates that:
 
 * Simulation of **cellular automata solving the parity problem**
 * Implementation of **BFOc and BFOm**
-* Support for arbitrary initial configurations
 * Detection of convergence to correct parity states
 * Step-by-step temporal evolution tracking
-* Easy comparison between rule behaviors
 
 
 ##  Usage
@@ -51,25 +49,20 @@ This result is important because it demonstrates that:
 To run the script, use the following command:
 
 ```bash
-python BFOc.py <d>
-python BFOm.py <d> 
+python BFOc.py <size_of_initial_configuration> [all]
+python BFOm.py <size_of_initial_configuration> [all]
 ```
 
 where:
+<size_of_initial_configuration> — odd integer ≤ 35 specifying the configuration size
+all — (optional) runs the program for all odd sizes from 5 up to the given size
 
-* `d` is a **positive odd integer** (e.g., 1, 3, 5, 7, ...)
 
-### Example
-
-```bash
-python.exe BFOc 5  --rule BFOc with configurations of size 5
-```
 
 ### Notes
-
-* The program expects exactly one argument.
-* The value of `d` must be **odd**.
-* If an even number or no argument is provided, the program may return an error.
+* Requires an odd integer ≤ 35 as the main argument.
+* An optional `all` argument enables processing for all odd sizes from 5 up to the given value.
+* Invalid, missing, or out-of-range input may result in an error.
 
 
 
