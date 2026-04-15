@@ -4,8 +4,8 @@ This repository contains a program developed to test and analyze different varia
 
 The implemented variants include:
 
-* **BFOc** – the corrected version
-* **BFOm** – a modified variant
+* **BFOc** – the corrected version of the original BFO rule defined in [3].
+* **BFOm** – the modified variant of the of the oryginal BFO rule defined in [2].
 
 ##  Purpose
 
@@ -14,9 +14,9 @@ The main goal of this project is to simulate and compare how different BFO rule 
 The parity problem consists in designing a cellular automaton that converges to:
 
 * all **1s** if the initial configuration contains an **odd** number of 1s,
-* all **0s** if the number of 1s is **even**.
+* all **0s** if the initial configuration contains an **even** number of 1s.
 
-This program was used to investigate and validate corrections to the original **BFOo** rule.
+According to formulation of the problem, the length of the considered initial configuration has to be odd. 
 
 ##  Research Context
 
@@ -65,7 +65,7 @@ all - (optional) runs the program for all odd sizes from 5 up to the given size
 [1] Betel, H., Oliveira, P.P.B., Flocchini, P. 
 Solving the parity problem in one-dimensional cellular automata. 
 Natural Computing 12(3), 323–337 (2013) 
-//doi.org/10.1007/s11047-013-9374-9
+https://doi.org/10.1007/s11047-013-9374-9
 
 [2] Betel, H., Balbi, P.P., Flocchini, P., Meo Martins, C.L. 
 Solving the Parity Problem in One-Dimensional Cellular Automata: Proposal of a fix to the BFO rule.
