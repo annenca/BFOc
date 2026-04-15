@@ -1,0 +1,77 @@
+#from joblib import Parallel, delayed
+from itertools import product
+import sys
+text='''Usage: python program.py <size_of_initial_configuration> [all]
+        <size_of_initial_configuration> must be an odd number ≤ 35.
+        [all] runs all odd sizes from 5 up to the given size.'''
+if len(sys.argv) < 2:
+    print("ERROR: Missing required arguments!")
+    print(text)
+    sys.exit(1)
+'''d - size of a initial configuration'''
+d= int(sys.argv[1])
+if (d%2)==0 or (d>35):
+    print("ERROR: size_of_initial_configuration should be an odd number ≤ 35")
+    print(text)
+    sys.exit(1)
+
+
+
+BFOm=12766019579927887748828308783632125137208948629571434199404394002667717405977989433935674396392364628033397327077046394244352827899915766421679960036933632
+BFOc=12766019579927887748828308653663109277301603915220967933337785052737964273352395268521715449368631189141265922117328783160550362758681395203209811341541376
+
+
+setA0000031 = [1, 2, 3, 4, 6, 8, 14, 20, 36, 60, 108, 188, 352, 632, 1182, 2192, 4116, 7712, 14602, 27596,
+               52488, 99880, 190746, 364724, 699252, 1342184, 2581428, 4971068, 9587580, 18512792, 35792568,
+               69273668, 134219796, 260301176, 505294128, 981706832]
+f = {}
+
+def rule_to_dict(rule: int):
+    f={}
+    return {
+        f"{i:09b}": (rule >> i) & 1
+        for i in range(512)
+    }
+
+def s(i1, i2, i3, i4, i5, i6, i7, i8, i9):
+    return str(i1) + str(i2) + str(i3) + str(i4) + str(i5) + str(i6) + str(i7) + str(i8) + str(i9)
+
+def next_step(s, n: int):
+    L = len(s)
+    return ''.join(
+        str(f.get(''.join(s[(n - 4 + k + j) % L] for j in range(9))))
+        for k in range(n)
+    )
+
+def toBinary(n, d):
+    return str(bin(n).replace("0b", "").zfill(d))
+
+def compute(s, d):
+    s1 = toBinary(s, d)
+    n = len(s1)
+    j = 0
+    while s1 != n * '0' and s1 != n * '1' and (j < setA0000031[n] // 2):
+        s1 = next_step(s1, n)
+        j += 1
+        if s1 == n * '0' or s1 == n * '1':
+            return (s, s1, j)
+    return (s, s1, j)
+
+f = rule_to_dict(BFOm)
+if len(sys.argv) ==3 and sys.argv[2]=='all':
+    for d in range (3,int(sys.argv[1]),2):
+        for i in range(0, (2 ** d), 1):
+            r = compute(i, d)
+            assert (r[1] == '0' * d or r[1] == '1' * d), f"r[0]={toBinary(r[0], d)}, r[1]={r[1]}"
+
+elif len(sys.argv) ==2:
+    for i in range(0, (2 ** d), 1):
+        r=compute(i,d)
+        assert (r[1] == '0' * d or r[1] == '1' * d), f"r[0]={toBinary(r[0], d)}, r[1]={r[1]}"
+else:
+    print(text)
+    sys.exit(1)
+'''run in parallel'''
+#results = Parallel(n_jobs=16)(delayed(compute)(i, d) for i in range(0, (2 ** d), 1))
+#for r in results:
+#    assert (r[1] == '0' * d or r[1] == '1' * d), f"r[0]={toBinary(r[0], d)}, r[1]={r[1]}"
