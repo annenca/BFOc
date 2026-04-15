@@ -54,8 +54,9 @@ python BFOm.py <size_of_initial_configuration> [all]
 ```
 
 where:
-<size_of_initial_configuration> — odd integer ≤ 35 specifying the configuration size
-all — (optional) runs the program for all odd sizes from 5 up to the given size
+<size_of_initial_configuration> - odd integer ≤ 35 specifying the configuration size
+
+all - (optional) runs the program for all odd sizes from 5 up to the given size
 
 
 
